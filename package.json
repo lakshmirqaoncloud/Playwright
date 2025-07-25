@@ -1,0 +1,40 @@
+{
+  "name": "e2e_automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:mobile": "playwright test --project='Mobile Chrome' --project='Mobile Safari'",
+    "test:login": "playwright test tests/advisorLogin.spec.ts",
+    "test:bookings": "playwright test tests/bookings.spec.ts", 
+    "test:payments": "playwright test tests/clientPayment.spec.ts",
+    "test:smoke": "playwright test --grep '@smoke'",
+    "test:regression": "playwright test --grep '@regression'",
+    "report": "playwright show-report",
+    "report:open": "npx playwright show-report",
+    "install:browsers": "playwright install",
+    "install:deps": "playwright install-deps",
+    "codegen": "playwright codegen",
+    "trace": "playwright show-trace"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "@types/node": "^24.0.3",
+    "dotenv": "^16.5.0"
+  },
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "playwright": "^1.53.0",
+    "recorder": "^0.0.1"
+  }
+}
