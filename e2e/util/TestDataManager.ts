@@ -67,7 +67,7 @@ export default class TestDataManager {
             worldOfHyatt: '15526',
             hera: '1234',
             leadingAdvisor: 'LAN-4376272',
-            defaultCurrency: 'CNY' 
+            defaultCurrency: 'USD ($)' 
     };
   }
 

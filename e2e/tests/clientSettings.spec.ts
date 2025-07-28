@@ -9,7 +9,7 @@ test.describe('Apply Customer Settings', () => {
         authenticatedPage,
         advisorHomePage,
         advisorSettingsMainPage
-        
+
 
     }) => {
         // Get test data
@@ -17,8 +17,7 @@ test.describe('Apply Customer Settings', () => {
 
         // Navigate to settings in the home page
         await advisorHomePage.settingsButton.click();
-        //await advisorHomePage.goto('/settings');
-        //await advisorHomePage.waitForPageLoad();
+      
 
         //navigate to general tab in settings page        
         await advisorSettingsMainPage.generalTab.click()
@@ -30,29 +29,25 @@ test.describe('Apply Customer Settings', () => {
 
 
         await expect(advisorSettingsMainPage.modalTitle).toBeVisible();
-        await advisorSettingsMainPage.fillAdvisorIDsForm(advisorSettingsData);        
-         await advisorSettingsMainPage.advisorIdSaveButton.click();
+        await advisorSettingsMainPage.fillAdvisorIDsForm(advisorSettingsData);
+        await advisorSettingsMainPage.advisorIdSaveButton.click();
 
-         // Wait for modal to close
-        await expect(advisorSettingsMainPage.modalTitle).not.toBeVisible();        
+        // Wait for modal to close
+        await expect(advisorSettingsMainPage.modalTitle).not.toBeVisible();
 
         await advisorSettingsMainPage.hyattValue.scrollIntoViewIfNeeded();
         await expect(advisorSettingsMainPage.hyattValue).toContainText(advisorSettingsData.worldOfHyatt);
         await expect(advisorSettingsMainPage.heraValue).toContainText(advisorSettingsData.hera);
         await expect(advisorSettingsMainPage.leadingAdvisorValue).toContainText(advisorSettingsData.leadingAdvisor);
 
-        await advisorSettingsMainPage.waitForPageLoad();
-        
-
-        
+      //  await advisorSettingsMainPage.waitForPageLoad();
     });
 
 
-test('Should be able to set booking platform settings manually', async ({
+    test('Should be able to set booking platform settings manually', async ({
         authenticatedPage,
         advisorHomePage,
         advisorSettingsMainPage
-        
 
     }) => {
         // Get test data
@@ -60,8 +55,7 @@ test('Should be able to set booking platform settings manually', async ({
 
         // Navigate to settings in the home page
         await advisorHomePage.settingsButton.click();
-        //await advisorHomePage.goto('/settings');
-        //await advisorHomePage.waitForPageLoad();
+
 
         //navigate to general tab in settings page        
         await advisorSettingsMainPage.generalTab.click()
@@ -70,26 +64,23 @@ test('Should be able to set booking platform settings manually', async ({
         //genneral tab check for advisor IDs section edit button
         await advisorSettingsMainPage.bookingPlatformEditButton.click();
         await advisorSettingsMainPage.bookingPlatformEditButton.waitFor({ state: 'visible' });
-     
+
 
         await expect(advisorSettingsMainPage.bookingsmodaltitle).toBeVisible();
-       await advisorSettingsMainPage.fillDefaultCurrency(advisorSettingsData);        
+        await advisorSettingsMainPage.fillDefaultCurrency(advisorSettingsData);
         await advisorSettingsMainPage.bookingsSaveButton.click();
 
-         // Wait for modal to close
-        await expect(advisorSettingsMainPage.bookingsmodaltitle).not.toBeVisible();        
+        // Wait for modal to close
+        await expect(advisorSettingsMainPage.bookingsmodaltitle).not.toBeVisible();
 
-       await advisorSettingsMainPage.selectedCurrencyLabel.scrollIntoViewIfNeeded();
+        await advisorSettingsMainPage.selectedCurrencyLabel.scrollIntoViewIfNeeded();
         await expect(advisorSettingsMainPage.selectedCurrencyLabel).toHaveText(advisorSettingsData.defaultCurrency)
-        /*await expect(advisorSettingsMainPage.hyattValue).toContainText(advisorSettingsData.worldOfHyatt);
-        await expect(advisorSettingsMainPage.heraValue).toContainText(advisorSettingsData.hera);
-        await expect(advisorSettingsMainPage.leadingAdvisorValue).toContainText(advisorSettingsData.leadingAdvisor);*/
 
         //await advisorSettingsMainPage.waitForPageLoad();
-       
-    
 
-        
+
+
+
     });
 
 });
