@@ -12,7 +12,7 @@
     "test:webkit": "playwright test --project=webkit",
     "test:mobile": "playwright test --project='Mobile Chrome' --project='Mobile Safari'",
     "test:login": "playwright test tests/advisorLogin.spec.ts",
-    "test:bookings": "playwright test tests/bookings.spec.ts", 
+    "test:bookings": "playwright test tests/bookings.spec.ts",
     "test:payments": "playwright test tests/clientPayment.spec.ts",
     "test:smoke": "playwright test --grep '@smoke'",
     "test:regression": "playwright test --grep '@regression'",
@@ -28,13 +28,14 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.53.0",
+    "@playwright/test": "^1.54.1",
     "@types/node": "^24.0.3",
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
-    "playwright": "^1.53.0",
+    "playwright": "^1.54.1",
     "recorder": "^0.0.1"
   }
 }

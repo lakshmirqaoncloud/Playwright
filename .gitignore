@@ -10,3 +10,8 @@ organized_test_cases.md
 .env
 playwright-report/
 run-tests.sh
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/

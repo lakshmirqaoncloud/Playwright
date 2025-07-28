@@ -18,6 +18,9 @@ export class AdvisorBasePage {
     private learnButtonSelector = '[href="/learn/essentials"]';  
     readonly learnButton: Locator;
 
+    private settingsButtonSelector = '[href="/settings"]';  
+    readonly settingsButton: Locator;
+
     // TODO: Add right side of header nav bar: IATA# and Profile Icon
 
 
@@ -120,6 +123,7 @@ export class AdvisorBasePage {
         this.manageButton = this.page.locator(this.manageButtonSelector);
         this.learnButton = this.page.locator(this.learnButtonSelector);
         this.getStartedButton = this.page.locator(this.getStartedButtonSelector);
+        this.settingsButton = this.page.locator(this.settingsButtonSelector);
 
         // Side Bar on Home
         this.dashboardButton = this.page.locator(this.dashboardButtonSelector);

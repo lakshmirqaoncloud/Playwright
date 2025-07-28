@@ -22,6 +22,14 @@ export interface BookingDetails {
     guestCount: number;
 }
 
+export interface ClientSettingsData {
+  worldOfHyatt: string;
+  hera: string;
+  leadingAdvisor: string;
+  defaultCurrency: string;
+}
+
+
 export default class TestDataManager {
     
     static getCredentials(): UserCredentials {
@@ -54,5 +62,13 @@ export default class TestDataManager {
         };
     }
 
+    static getClientSettingsData(): ClientSettingsData {
+         return {
+            worldOfHyatt: '15526',
+            hera: '1234',
+            leadingAdvisor: 'LAN-4376272',
+            defaultCurrency: 'CNY' 
+    };
+  }
 
 } 
