@@ -28,6 +28,9 @@ test.beforeEach(async () => {
         //navigate to general tab in settings page        
         await advisorSettingsMainPage.generalTab.click()        
         await advisorSettingsMainPage.waitForPageLoad();
+      await advisorSettingsMainPage.hyattValue.textContent();
+        await advisorSettingsMainPage.heraValue.textContent();
+        await advisorSettingsMainPage.leadingAdvisorValue.textContent();
 
         //genneral tab check for advisor IDs section edit button
        // await advisorSettingsMainPage.advisorIdsEditButton.waitFor({ state: 'visible' });
