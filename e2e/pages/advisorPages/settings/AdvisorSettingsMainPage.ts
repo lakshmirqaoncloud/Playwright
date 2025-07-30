@@ -19,14 +19,18 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
   private advisorIdsEditButtonSelector = 'text=Advisor IDs >> .. >> button:has-text("Edit")';
   readonly advisorIdsEditButton: Locator;
 
+ 
 
-  private hyattValueSelector = 'text=World Of Hyatt >> xpath=../../div[2]/div';
-  readonly hyattValue: Locator;
+ //private hyattValueSelector = 'text=World Of Hyatt'; 
+          // parent container with both label and value
+ 
+ private hyattValueSelector = '.text-medium.font-medium.leading-normal';
+readonly hyattValue: Locator; 
 
-private heraValueSelector = 'text=Hera >> xpath=../../div[2]/div';
+private heraValueSelector = '.text-medium.font-medium.leading-normal';
  readonly heraValue: Locator;
 
-  private leadingAdvisorValueSelector = 'text=Leading Advisor Number (Leading Hotels Of The World) >> xpath=../../div[2]/div';
+  private leadingAdvisorValueSelector = '.text-medium.font-medium.leading-normal';
   readonly leadingAdvisorValue: Locator;
 
   private advisorIdSaveButtonSelector = 'button:has-text("Save")';
@@ -79,9 +83,9 @@ private heraValueSelector = 'text=Hera >> xpath=../../div[2]/div';
     this.generalTab = page.locator(this.generalTabSelector);
     this.brandingTab = page.locator(this.brandingTabSelector);
     this.advisorIdsEditButton = page.locator(this.advisorIdsEditButtonSelector);
-    this.hyattValue = page.locator(this.hyattValueSelector);
-    this.heraValue = page.locator(this.heraValueSelector);
-    this.leadingAdvisorValue = page.locator(this.leadingAdvisorValueSelector);
+    this.hyattValue =  page.locator(this.hyattValueSelector).nth(0);
+    this.heraValue = page.locator(this.heraValueSelector).nth(1);
+    this.leadingAdvisorValue = page.locator(this.leadingAdvisorValueSelector).nth(2);
     this.advisorIdSaveButton = page.locator(this.advisorIdSaveButtonSelector);
     this.advisorIdcancelButton = page.locator(this.advisorIdCancelButtonSelector);
     this.worldOfHyattInput = page.locator(this.worldOfHyattInputSelector).nth(0)
