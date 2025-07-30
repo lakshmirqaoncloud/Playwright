@@ -1,4 +1,6 @@
+import { ClientSettingsData } from '../../../util/TestDataManager';
 import { AdvisorBasePage } from '../AdvisorBasePage';
+
 import { Page, Locator } from '@playwright/test';
 
 
@@ -14,15 +16,15 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
 
   //selectors for advisor IDs section
 
-  private advisorIdsEditButtonSelector = 'div.flex.items-center:has(div:text("Advisor IDs")) >> button:has-text("Edit")';
+  private advisorIdsEditButtonSelector = 'text=Advisor IDs >> .. >> button:has-text("Edit")';
   readonly advisorIdsEditButton: Locator;
 
 
   private hyattValueSelector = 'text=World Of Hyatt >> xpath=../../div[2]/div';
   readonly hyattValue: Locator;
 
-  private heraValueSelector = 'text=Hera >> xpath=../../div[2]/div';
-  readonly heraValue: Locator;
+private heraValueSelector = 'text=Hera >> xpath=../../div[2]/div';
+ readonly heraValue: Locator;
 
   private leadingAdvisorValueSelector = 'text=Leading Advisor Number (Leading Hotels Of The World) >> xpath=../../div[2]/div';
   readonly leadingAdvisorValue: Locator;
@@ -50,7 +52,7 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
 
   //selectors for booking platform settings
 
-  private bookingPlatformEditButtonSelector = 'div.flex.items-center:has(p:text("Booking platform settings")) >> button:has-text("Edit")';
+ private bookingPlatformEditButtonSelector = 'text=Booking platform settings >> .. >> button:has-text("Edit")';
   readonly bookingPlatformEditButton: Locator;
 
   private currencyDropdownSelector = '[data-testid="select-default-currency-for-display-of-rates"]';
@@ -98,15 +100,15 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
   }
 
   //Method to fill the advisor id details
-  async fillAdvisorIDsForm(advisorSettingsData: any) {
+  async fillAdvisorIDsForm(advisorSettingsData: ClientSettingsData) {
     await this.worldOfHyattInput.fill(advisorSettingsData.worldOfHyatt);
     await this.heraInput.fill(advisorSettingsData.hera);
     await this.leadingAdvisorInput.fill(advisorSettingsData.leadingAdvisor);
 
   }
   // Method to fill the default currency in booking platform settings
-  async fillDefaultCurrency(advisorSettingsData: any) {
-    const currency = advisorSettingsData.defaultCurrency;
+  async fillDefaultCurrency(currencySettingsData: ClientSettingsData) {
+    const currency = currencySettingsData.defaultCurrency;
     if (!currency) throw new Error('Currency not provided');
     // Step 1: Open dropdown
     await this.currencyDropdown.click();
