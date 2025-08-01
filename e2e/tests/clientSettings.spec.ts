@@ -33,11 +33,11 @@ test.beforeEach(async () => {
         await advisorSettingsMainPage.leadingAdvisorValue.textContent();
 
         //genneral tab check for advisor IDs section edit button
-       // await advisorSettingsMainPage.advisorIdsEditButton.waitFor({ state: 'visible' });
+       
         await advisorSettingsMainPage.advisorIdsEditButton.click();
 
 
-        //await expect(advisorSettingsMainPage.modalTitle).toBeVisible();
+        
         await advisorSettingsMainPage.fillAdvisorIDsForm(ClientSettingsData);
         await advisorSettingsMainPage.advisorIdSaveButton.click();
 
@@ -49,7 +49,7 @@ test.beforeEach(async () => {
         await expect(advisorSettingsMainPage.heraValue).toContainText(ClientSettingsData.hera);
         await expect(advisorSettingsMainPage.leadingAdvisorValue).toContainText(ClientSettingsData.leadingAdvisor);
 
-      //  await advisorSettingsMainPage.waitForPageLoad();
+     
     });
 
 
@@ -90,6 +90,57 @@ test.beforeEach(async () => {
 
 
 
+
+    });
+test('Should be able to set personal information details manually', async ({
+        authenticatedPage,
+        advisorHomePage,
+        advisorSettingsMainPage
+
+    }) => {
+        // Get test data
+        //const advisorSettingsData = TestDataManager.getClientSettingsData();
+
+        // Navigate to settings in the home page
+        await advisorHomePage.settingsButton.click();
+
+
+        //navigate to general tab in settings page        
+        await advisorSettingsMainPage.generalTab.click()
+        await advisorSettingsMainPage.waitForPageLoad();
+
+
+
+        //genneral tab check for personal information details section edit button
+        await advisorSettingsMainPage.personalInformationEditButton.click();
+       // await advisorSettingsMainPage.bookingPlatformEditButton.waitFor({ state: 'visible' });
+
+
+        //await expect(advisorSettingsMainPage.bookingsmodaltitle).toBeVisible();
+        await advisorSettingsMainPage.fillPersonalInformation(ClientSettingsData);
+        
+        await advisorSettingsMainPage.personalInformationSaveButton.click();
+
+        await expect(advisorSettingsMainPage.personalInformationcountry).toContainText(ClientSettingsData.country);
+        await expect(advisorSettingsMainPage.personalInformationaddress).toContainText(ClientSettingsData.Address);
+        await expect(advisorSettingsMainPage.personalInformationcity).toHaveValue(ClientSettingsData.city);
+       await expect(advisorSettingsMainPage.personalInformationstate).toHaveValue(ClientSettingsData.state);
+        await expect(advisorSettingsMainPage.personalInformationzipcode).toContainText(ClientSettingsData.zipcode);
+        await expect(advisorSettingsMainPage.personalInformationphone).toContainText(ClientSettingsData.phoneNumber);
+        //await expect(advisorSettingsMainPage.personalInformationtimezone).toContainText(ClientSettingsData.timezone);
+
+       //s await advisorSettingsMainPage.personalInformationaddress.scrollIntoViewIfNeeded();
+/*
+        // Wait for modal to close
+        await expect(advisorSettingsMainPage.bookingsmodaltitle).not.toBeVisible();
+
+        await advisorSettingsMainPage.selectedCurrencyLabel.scrollIntoViewIfNeeded();
+        await expect(advisorSettingsMainPage.selectedCurrencyLabel).toHaveText(ClientSettingsData.defaultCurrency);
+
+        //await advisorSettingsMainPage.waitForPageLoad();
+
+
+*/
 
     });
 
