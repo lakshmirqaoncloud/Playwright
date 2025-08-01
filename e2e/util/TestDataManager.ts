@@ -23,10 +23,17 @@ export interface BookingDetails {
 }
 
 export interface ClientSettingsData {
-  worldOfHyatt: string;
-  hera: string;
-  leadingAdvisor: string;
-  defaultCurrency: string;
+  Address: string;
+  country: string;
+    city: string;
+    state: string;
+    zipcode: string;
+    phoneNumber: string;
+    timezone: string;
+    worldOfHyatt: string;
+    hera: string;
+    leadingAdvisor: string;
+    defaultCurrency: string;
 }
 
 
@@ -64,6 +71,13 @@ export default class TestDataManager {
 
     static getClientSettingsData(): ClientSettingsData {
          return {
+            Address: '225 Broadway Fl 23',
+            country: 'United States of America',
+            city: 'New York',
+            state: 'New York',
+            zipcode: '10007',
+            phoneNumber: '+1 408-555-1234',
+            timezone: 'America - New York',
             worldOfHyatt: '15526',
             hera: '1234',
             leadingAdvisor: 'LAN-4376272',
