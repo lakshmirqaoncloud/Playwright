@@ -23,21 +23,22 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
   readonly personalInformationcountry: Locator;
   private personalInformationaddressSelector = '[data-testid="address1"]';
   readonly personalInformationaddress: Locator;
-  private personalInformationcitySelector = 'input[data-testid="city"]';
+  private personalInformationcitySelector = 'span[data-testid="city"]';
   readonly personalInformationcity: Locator;
-  private personalInformationstateSelector = 'input[data-testid="state"]';
+  private personalInformationstateSelector = 'span[data-testid="state"]';
   readonly personalInformationstate: Locator;
-  private personalInformationzipcodeSelector = '[data-testid="zipCode"]';
+  private personalInformationzipcodeSelector = 'span[data-testid="zipCode"]';
   readonly personalInformationzipcode: Locator;
   private personalInformationphoneSelector = '[data-testid="phoneNumber"]';
   readonly personalInformationphone: Locator;
   private personalInformationtimezoneSelector = '[data-testid="timezone"]';
   readonly personalInformationtimezone: Locator;
+
   private personalInformationaddressInputSelector = 'input[data-testid="address"]';
   readonly personalInformationaddressInput: Locator;
   private personalInformationcountryInputSelector = '#country_id input[role="combobox"]';
   readonly personalInformationcountryInput: Locator;
-    private personalInformationcityInputSelector = 'input[data-testid="city"]';
+  private personalInformationcityInputSelector = 'input[data-testid="city"]';
   readonly personalInformationcityInput: Locator;
   private personalInformationstateInputSelector = 'input[data-testid="state"]';
   readonly personalInformationstateInput: Locator;
@@ -45,12 +46,14 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
   readonly personalInformationzipcodeInput: Locator;
   private personalInformationphoneInputSelector = 'input[data-testid="phone-input"]';
   readonly personalInformationphoneInput: Locator;
-  private personalInformationtimezoneInputSelector = 'input#timezone';
-  readonly personalInformationtimezoneInput: Locator;
+  //private personalInformationtimezoneInputSelector = 'input#timezone';
+  //readonly personalInformationtimezoneInput: Locator;
    private personalInformationSaveButtonSelector = 'button:has-text("Save")';
   readonly personalInformationSaveButton: Locator;
   readonly countryOption: Locator;
   private countryOptionSelector = 'div[role="option"]';
+private personalInformationCancelButtonSelector = 'button:has-text("Cancel")';
+readonly personalInformationCancelButton: Locator;
 
   //private timeZoneOptionSelector = 'div[role="option"]';
   //readonly timeZoneOption: Locator;
@@ -74,7 +77,7 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
   private advisorIdSaveButtonSelector = 'button:has-text("Save")';
   readonly advisorIdSaveButton: Locator;
 
-  private advisorIdCancelButtonSelector = 'button:has-text("Cancel")'
+  private advisorIdCancelButtonSelector = 'button:has-text("Close")'
   readonly advisorIdcancelButton: Locator;
 
   private worldOfHyattInputSelector = '[data-testid="add-external-ids-modal-input"]';
@@ -91,6 +94,7 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
 
   private modalTitleSelector = 'header >> text=Advisor IDs';
   readonly modalTitle: Locator;
+
 
   //selectors for booking platform settings
 
@@ -135,11 +139,15 @@ export class AdvisorSettingsMainPage extends AdvisorBasePage {
     this.personalInformationstateInput = page.locator(this.personalInformationstateInputSelector);
     this.personalInformationzipcodeInput = page.locator(this.personalInformationzipcodeInputSelector);
     this.personalInformationphoneInput = page.locator(this.personalInformationphoneInputSelector);
-    this.personalInformationtimezoneInput = page.locator(this.personalInformationtimezoneInputSelector)
+
+  //  this.personalInformationtimezoneInput = page.locator(this.personalInformationtimezoneInputSelector);
+   // this.timeZoneOption = page.locator(this.timeZoneOptionSelector);
     this.personalInformationSaveButton = page.locator(this.personalInformationSaveButtonSelector);
     this.countryOption = page.locator(this.countryOptionSelector);
-   // this.timeZoneOption = page.locator(this.timeZoneOptionSelector);
-   
+    this.personalInformationCancelButton = page.locator(this.personalInformationCancelButtonSelector);
+    
+  
+   //Selectors for advisor IDs section
 
     this.advisorIdsEditButton = page.locator(this.advisorIdsEditButtonSelector);
     this.hyattValue = page.locator(this.hyattValueSelector).nth(0);
