@@ -77,11 +77,66 @@ export class AdvisorPartnersPage extends AdvisorBasePage {
     private addCardButtonSelector = 'add-card';
     readonly addCardButton: Locator;
 
+    //manage booking 
+
+    private manageBookingButtonSelector = '[data-testid="rowbutton-Manage booking"]';
+    readonly manageBookingButton: Locator;
+
+     private cancelBookingButtonSelector = '[data-testid="rowbutton-Cancel booking"]';
+    readonly cancelBookingButton: Locator;
+
+    private cancelUsingPortalButtonSelector = 'button:has-text("I want to cancel this booking using Portal")';
+    readonly cancelUsingPortalButton: Locator;
+
+    private cancelWithPartnerButtonSelector = 'button:has-text("I already canceled this booking with the partner")';
+    readonly cancelWithPartnerButton: Locator;
+
+     private nextButtonSelector = 'button:has-text("Next")';
+    readonly nextButton: Locator;
+
+    private advisorDecisionRadioSelector = '[data-testid="reason-radio-button_advisor"]';
+    readonly advisorDecisionRadio: Locator;
+
+    private cancelThisBookingButtonSelector = 'button:has-text("Cancel this booking")';
+    readonly cancelThisBookingButton: Locator;
+
+    private reportAsCanceledButtonSelector = 'button:has-text("Report as canceled")';
+    readonly reportAsCanceledButton: Locator;
+
+     private upcomingBadgeSelector = '[data-testid="badge-information"]:has-text("Upcoming")';
+    readonly upcomingBadge: Locator;
+
+   private travelingBadgeSelector = '[data-testid="badge-in-progress"]:has-text("Traveling")';
+    readonly travelingBadge: Locator;
+
+    private canceledBadgeSelector = '[data-testid="badge-negative"]:has-text("Canceled")';
+    readonly canceledBadge: Locator;
+
+    //done this for manage booking 
+
     private completeBookingButtonSelector = 'button:has-text("Complete Booking")';
     readonly completeBookingButton: Locator;
 
+    
+
+    //private manageBookingHeaderSelector = '[data-testid="manage-booking-header"]'
+   // readonly manageBookingHeader: Locator;
+
+   
+
+    
+
+   
+
+   // private cancellationTypeHeaderSelector = 'h1:has-text("What type of cancellation is this?")';
+   // readonly cancellationTypeHeader: Locator;
+
+    
+
     private bookingConfirmationSelector = 'banner-Booking confirmed';
     readonly bookingConfirmation: Locator;
+
+   
 
     private automatedCardRadioSelector = 'Automation Test'; //Fix this later
     readonly automatedCardRadio: Locator;
@@ -146,6 +201,19 @@ readonly viewMore: Locator;
         this.automatedCardRadio = this.page.getByText(this.automatedCardRadioSelector);
         this.finalizingBooking = this.page.getByText(this.finalizingBookingSelector);
         this.viewMore = page.locator(this.viewMoreSelector);
+        this.manageBookingButton = this.page.locator(this.manageBookingButtonSelector);
+       // this.manageBookingHeader = this.page.locator(this.manageBookingHeaderSelector);
+        this.cancelBookingButton = this.page.locator(this.cancelBookingButtonSelector);
+      //  this.cancellationTypeHeader = this.page.locator(this.cancellationTypeHeaderSelector);
+        this.cancelUsingPortalButton = this.page.locator(this.cancelUsingPortalButtonSelector);
+         this.nextButton = this.page.locator(this.nextButtonSelector);
+        this.advisorDecisionRadio = this.page.locator(this.advisorDecisionRadioSelector);
+        this.cancelThisBookingButton = this.page.locator(this.cancelThisBookingButtonSelector);
+         this.canceledBadge = page.locator(this.canceledBadgeSelector);
+         this.upcomingBadge = page.locator(this.upcomingBadgeSelector);
+         this.travelingBadge = page.locator(this.travelingBadgeSelector);
+         this.cancelWithPartnerButton = page.locator(this.cancelWithPartnerButtonSelector);
+        this.reportAsCanceledButton = this.page.locator(this.reportAsCanceledButtonSelector);
     }
 
     async selectDate(date: string) {
@@ -293,4 +361,25 @@ readonly viewMore: Locator;
         await this.completeBookingButton.click();
         
     }
+
+    async performCancelBooking(cancelType: 'portal' | 'partner'){            
+        await this.manageBookingButton.click();
+        await this.cancelBookingButton.click();
+         if (cancelType === 'partner') {
+                await this.cancelWithPartnerButton.click();
+         }else{
+              await this.cancelUsingPortalButton.click();
+         }
+             
+        await this.nextButton.click();      
+        await this.advisorDecisionRadio.click();
+        await this.page.waitForTimeout(3000);
+         if (cancelType === 'partner') {
+            await this.reportAsCanceledButton.click();
+         }else{
+        await this.cancelThisBookingButton.click();
+         }
+    }
+
+    
 }
